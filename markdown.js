@@ -7,13 +7,20 @@
 'use strict';
 
 angular.module('btford.markdown', []).
-  directive('markdown', function () {
+  directive('btfMarkdown', function () {
     var converter = new Showdown.converter();
     return {
       restrict: 'AE',
       link: function (scope, element, attrs) {
-        var html = converter.makeHtml(element.text());
-        element.html(html);
+        if (attrs.btfMarkdown) {
+          scope.$watch(attrs.btfMarkdown, function (newVal) {
+            var html = converter.makeHtml(newVal);
+            element.html(html);
+          });
+        } else {
+          var html = converter.makeHtml(element.text());
+          element.html(html);
+        }
       }
     };
   });
