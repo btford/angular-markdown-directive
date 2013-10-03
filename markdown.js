@@ -14,7 +14,7 @@ angular.module('btford.markdown', []).
       link: function (scope, element, attrs) {
         if (attrs.btfMarkdown) {
           scope.$watch(attrs.btfMarkdown, function (newVal) {
-            var html = converter.makeHtml(newVal);
+            var html = newVal ? converter.makeHtml(newVal) : '';
             element.html(html);
           });
         } else {
