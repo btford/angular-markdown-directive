@@ -5,7 +5,7 @@ Bower Component for a simple AngularJS Markdown directive using [Showdown](https
 1. `bower install angular-markdown-directive`
 2. Made sure the showdown lib is loaded. It should be installed as a dependency at `components/showdown/compressed/showdown.js`.
 3. Include the `markdown.js` script provided by this component into your app.
-4. Add `btford.markdown` as a module dependency to your app.
+4. Add `btford.markdown` as a module dependency to your app similiar to this `angular.module('myApp', ['btford.markdown', ...])`
 5. Insert the `btf-markdown` directive into your template:
 
 ```html
