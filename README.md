@@ -21,5 +21,14 @@ You can also bind the markdown input to a scope variable:
 </div>
 <!-- Uses $scope.markdown -->
 ```
+
+Or include a markdown file:
+
+```html
+<div btf-markdown ng-include="'README.md'"> 
+</div>
+<!-- Uses content from README.md -->
+```
+
 ## License
 MIT
