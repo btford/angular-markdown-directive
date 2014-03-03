@@ -8,19 +8,37 @@
 
 angular.module('btford.markdown', ['ngSanitize']).
   directive('btfMarkdown', function ($sanitize) {
+  directive('btfMarkdown', ['$sanitize', '$http', '$sce', function ($sanitize, $http, $sce) {
     var converter = new Showdown.converter();
     return {
       restrict: 'AE',
       link: function (scope, element, attrs) {
-        if (attrs.btfMarkdown) {
+        var html, src;
+
+        if (attrs.src) {
+          remoteMarkdown(attrs.src);
+        } else if (attrs.btfMarkdown) {
           scope.$watch(attrs.btfMarkdown, function (newVal) {
-            var html = newVal ? $sanitize(converter.makeHtml(newVal)) : '';
-            element.html(html);
+            makeHtml(newVal);
           });
         } else {
-          var html = $sanitize(converter.makeHtml(element.text()));
+          makeHtml(element.text());
+        }
+
+        function makeHtml(text) {
+          var html;
+
+          html = text ? $sanitize(converter.makeHtml(text)) : '';
+
           element.html(html);
+        }
+
+        function remoteMarkdown(src) {
+          src = $sce.parseAsResourceUrl(src)();
+          $http.get(src).success(function (response) {
+            makeHtml(response);
+          });
         }
       }
     };
-  });
+  }]);

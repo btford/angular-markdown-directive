@@ -24,5 +24,11 @@ You can also bind the markdown input to a scope variable:
 <!-- Uses $scope.markdown -->
 ```
 
+Or from a remote markdown file:
+```html
+<div btf-markdown src="'static/markdown/markdown.md'"> 
+</div>
+```
+
 ## License
 MIT
