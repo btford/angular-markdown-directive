@@ -3,23 +3,26 @@ Bower Component for a simple AngularJS Markdown directive using [Showdown](https
 
 ## Usage
 1. `bower install angular-markdown-directive`
-2. Made sure the showdown lib is loaded. It should be installed as a dependency at `components/showdown/compressed/showdown.js`.
-3. Include the `markdown.js` script provided by this component into your app.
-4. Add `btford.markdown` as a module dependency to your app.
-5. Insert the `btf-markdown` directive into your template:
+2. Include `angular-sanitize.js`. It should be located at `bower_components/angular-sanitize/`.
+3. Include `showdown.js`. It should located at `bower_components/showdown/`.
+4. Include `markdown.js` provided by this component into your app.
+5. Add `btford.markdown` as a module dependency to your app.
+6. Insert the `btf-markdown` directive into your template:
 
 ```html
-<btf-markdown>   
-     #Markdown directive   
-     *It works!*  
+<btf-markdown>
+  #Markdown directive
+  *It works!*
 </btf-markdown>
 ```
+
 You can also bind the markdown input to a scope variable:
 
 ```html
-<div btf-markdown="markdown"> 
+<div btf-markdown="markdown">
 </div>
 <!-- Uses $scope.markdown -->
 ```
+
 ## License
 MIT
