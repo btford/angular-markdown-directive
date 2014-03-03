@@ -1,9 +1,9 @@
 {
   "name": "angular-markdown-directive",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "markdown.js",
   "dependencies": {
-    "angular": "~1.0.5",
+    "angular": "~1.0.8",
     "angular-sanitize": "~1.0.8",
     "showdown": "~0.3.1"
   }
