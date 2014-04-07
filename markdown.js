@@ -7,7 +7,7 @@
 'use strict';
 
 angular.module('btford.markdown', ['ngSanitize']).
-  directive('btfMarkdown', function ($sanitize) {
+  directive('btfMarkdown', ['$sanitize', function ($sanitize) {
     var converter = new Showdown.converter();
     return {
       restrict: 'AE',
@@ -23,4 +23,4 @@ angular.module('btford.markdown', ['ngSanitize']).
         }
       }
     };
-  });
+  }]);
