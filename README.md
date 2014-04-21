@@ -32,5 +32,24 @@ Or include a markdown file:
 <!-- Uses content from README.md -->
 ```
 
+## Extensions
+You can also use showdown extensions. To do so, just include the corresponding javascript on your page e.g.
+
+```html
+<script src="bower_components/showdown/src/extensions/github.js"></script>
+<!-- use ~~strike-through~~syntax-->
+```
+
+and add a list of extensions to the markdown container:
+```html
+<btf-markdown extensions="github, table">
+  ~~strike-trhough~~~
+  
+  | Col1 | Col2 |
+  |------|------|
+  | cell | cell |
+</btf-markdown>
+```
+
 ## License
 MIT
