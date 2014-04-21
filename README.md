@@ -1,4 +1,5 @@
-# angular-markdown-directive
+# angular-markdown-directive [![Build Status](https://travis-ci.org/btford/angular-markdown-directive.png)](https://travis-ci.org/btford/angular-markdown-directive)
+
 Bower Component for a simple AngularJS Markdown directive using [Showdown](https://github.com/coreyti/showdown). Based on [this excellent tutorial](http://blog.angularjs.org/2012/05/custom-components-part-1.html) by [@johnlinquist](https://twitter.com/johnlindquist).
 
 ## Usage
