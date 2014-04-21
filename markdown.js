@@ -7,18 +7,28 @@
 'use strict';
 
 angular.module('btford.markdown', ['ngSanitize']).
-  directive('btfMarkdown', function ($sanitize) {
-    var converter = new Showdown.converter();
+  provider('markdownConverter', function () {
+    var opts = {};
+    return {
+      config: function (newOpts) {
+        opts = newOpts;
+      },
+      $get: function () {
+        return new Showdown.converter(opts);
+      }
+    };
+  }).
+  directive('btfMarkdown', function ($sanitize, markdownConverter) {
     return {
       restrict: 'AE',
       link: function (scope, element, attrs) {
         if (attrs.btfMarkdown) {
           scope.$watch(attrs.btfMarkdown, function (newVal) {
-            var html = newVal ? $sanitize(converter.makeHtml(newVal)) : '';
+            var html = newVal ? $sanitize(markdownConverter.makeHtml(newVal)) : '';
             element.html(html);
           });
         } else {
-          var html = $sanitize(converter.makeHtml(element.text()));
+          var html = $sanitize(markdownConverter.makeHtml(element.text()));
           element.html(html);
         }
       }
