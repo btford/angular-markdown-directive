@@ -4,7 +4,7 @@
   "description": "simple AngularJS markdown directive with showdown",
   "main": "markdown.js",
   "scripts": {
-    "test": "./node_modules/.bin/karma start --browsers Firefox --single-run"
+    "test": "./node_modules/karma/bin/karma start --browsers Firefox --single-run"
   },
   "repository": {
     "type": "git",
