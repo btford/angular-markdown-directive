@@ -40,3 +40,31 @@ describe('btfMarkdown', function () {
   });
 
 });
+
+describe('markdownConverterProvider', function () {
+  var $compile,
+      $rootScope;
+
+  // module that adds config
+  angular.module('testModule', []).
+    config(function (markdownConverterProvider) {
+      markdownConverterProvider.config({
+        extensions: ['twitter']
+      });
+    });
+
+  beforeEach(module('ngSanitize'));
+  beforeEach(module('btford.markdown'));
+  beforeEach(module('testModule'));
+
+  beforeEach(inject(function (_$compile_, _$rootScope_) {
+    $compile = _$compile_;
+    $rootScope = _$rootScope_;
+  }));
+
+  it('should allow extensions', function () {
+    var elt = angular.element('<btf-markdown>@briantford</btf-markdown>');
+    $compile(elt)($rootScope);
+    expect(elt.html()).toBe('<p><a href="http://twitter.com/briantford">@briantford</a></p>');
+  })
+})
