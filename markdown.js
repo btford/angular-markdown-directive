@@ -8,10 +8,26 @@
 
 angular.module('btford.markdown', ['ngSanitize']).
   directive('btfMarkdown', function ($sanitize) {
-    var converter = new Showdown.converter();
+    var converter, extensions = [];
     return {
       restrict: 'AE',
       link: function (scope, element, attrs) {
+
+        // Check for extensions
+        var attrExtensions = attrs['extensions'];
+        if(attrExtensions)
+        {
+          // Convert the comma separated string into a list.
+          attrExtensions.split(',').forEach(function(val)
+            {
+              // Strip any whitespace from the beginning or end.
+              extensions.push(val.replace(/^\s+|\s+$/g, ''));
+            });
+        } // end if
+        converter = extensions.length > 0 ?
+          new Showdown.converter({'extensions': extensions}) :
+          new Showdown.converter();
+
         if (attrs.btfMarkdown) {
           scope.$watch(attrs.btfMarkdown, function (newVal) {
             var html = newVal ? $sanitize(converter.makeHtml(newVal)) : '';
