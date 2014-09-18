@@ -28,7 +28,7 @@ angular.module('btford.markdown', ['ngSanitize']).
             element.html(html);
           });
         } else {
-          var html = $sce.trustAsHtml(markdownConverter.makeHtml(element.text()));
+          var html = $sce.trustAsHtml(markdownConverter.makeHtml(element.html()));
           element.html(html);
         }
       }
