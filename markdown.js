@@ -28,7 +28,8 @@ angular.module('btford.markdown', ['ngSanitize']).
             element.html(html);
           });
         } else {
-          var html = $sanitize(markdownConverter.makeHtml(element.text()));
+          var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+          var html = $sanitize(markdownConverter.makeHtml(element.text().replace(rtrim, '')));
           element.html(html);
         }
       }

@@ -16,6 +16,12 @@ describe('btfMarkdown', function () {
     expect(elt.html()).toBe('<p><em>hi</em></p>');
   });
 
+  it('should trim spaces', function () {
+    var elt = angular.element('<btf-markdown>    *hi*     </btf-markdown>');
+    $compile(elt)($rootScope);
+    expect(elt.html()).toBe('<p><em>hi</em></p>');
+  });
+
   it('should work as an attribute', function () {
     var elt = angular.element('<div btf-markdown>*hi*</div>');
     $compile(elt)($rootScope);
