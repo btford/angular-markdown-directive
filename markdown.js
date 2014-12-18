@@ -46,7 +46,7 @@
   }
 
   if (typeof define === 'function' && define.amd) {
-    define('angular-markdown-directive', ['angular', 'moment'], angularMarkdown);
+    define('angular-markdown-directive', ['angular', 'showdown'], angularMarkdown);
   } else if (typeof module !== 'undefined' && module && module.exports && typeof require !== 'undefined') {
     angularMarkdown(angular, require('Showdown'));
   } else {
