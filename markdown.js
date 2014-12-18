@@ -7,7 +7,7 @@
 'format global'; /* global define */
 'deps angular';
 'deps angular-sanitize';
-'deps showdown';
+'deps Showdown';
 
 (function () {
   'use strict';
@@ -47,7 +47,7 @@
 
   if (typeof define === 'function' && define.amd) {
     define('angular-markdown-directive', ['angular', 'moment'], angularMarkdown);
-  } else if (typeof module !== 'undefined' && module && module.exports) {
+  } else if (typeof module !== 'undefined' && module && module.exports && typeof require !== 'undefined') {
     angularMarkdown(angular, require('Showdown'));
   } else {
     angularMarkdown(angular, window.Showdown);
