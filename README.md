@@ -4,12 +4,29 @@ Bower Component for a simple AngularJS Markdown directive using [Showdown](https
 
 
 ## Usage
+
+### Bower
+
 1. `bower install angular-markdown-directive`
 2. Include `angular-sanitize.js`. It should be located at `bower_components/angular-sanitize/`.
 3. Include `showdown.js`. It should be located at `bower_components/showdown/`.
 4. Include `markdown.js` provided by this component into your app.
 5. Add `btford.markdown` as a module dependency to your app.
-6. Insert the `btf-markdown` directive into your template:
+
+### NPM (and browserify)
+
+1. `npm install --save angular-markdown-directive`
+2. `npm install --save angular-sanitize`
+4. Require `angular-sanitize` and `angular-markdown-directive/markdown` provided by this component into your app.
+  ```
+  require('angular-sanitize/angular-sanitize');
+  require('angular-markdown-directive/markdown.js');
+  ```
+5. Add `btford.markdown` as a module dependency to your app
+
+### Using the directive
+
+Insert the `btf-markdown` directive into your template:
 
 ```html
 <btf-markdown>
