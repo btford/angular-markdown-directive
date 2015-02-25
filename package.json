@@ -29,6 +29,6 @@
     "karma-chrome-launcher": "^0.1.3"
   },
   "dependencies": {
-    "showdown": "git+https://github.com/ushahidi/showdown#fix-browserify"
+    "showdown": "git+https://github.com/showdownjs/showdown#showdown2"
   }
 }

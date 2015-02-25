@@ -23,7 +23,7 @@
             opts = newOpts;
           },
           $get: function () {
-            return new Showdown.converter(opts);
+            return new Showdown.Converter(opts);
           }
         };
       }])
