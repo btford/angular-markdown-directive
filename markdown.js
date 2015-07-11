@@ -14,7 +14,7 @@ angular.module('btford.markdown', ['ngSanitize']).
         opts = newOpts;
       },
       $get: function () {
-        return new Showdown.converter(opts);
+        return new showdown.Converter(opts);
       }
     };
   }).
