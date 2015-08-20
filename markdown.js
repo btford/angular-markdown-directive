@@ -1,5 +1,5 @@
 /*
- * angular-markdown-directive v0.3.1
+ * angular-markdown-directive v0.4.0
  * (c) 2013-2014 Brian Ford http://briantford.com
  * License: MIT
  */
