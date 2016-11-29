@@ -50,6 +50,7 @@ config(['markdownConverterProvider', function (markdownConverterProvider) {
 }])
 ```
 
+Note: Since default showdown extensions are no more provided with showdown, you will have to install them from your dependencies manager. The twitter extension used in the sample above is available from `https://github.com/showdownjs/twitter-extension`.
 
 ## License
 MIT
