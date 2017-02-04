@@ -3,7 +3,7 @@
  * (c) 2013-2014 Brian Ford http://briantford.com
  * License: MIT
  */
-
+/*global Showdown:true*/
 'use strict';
 
 angular.module('btford.markdown', ['ngSanitize']).
