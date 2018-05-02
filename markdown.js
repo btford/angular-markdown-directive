@@ -18,18 +18,18 @@ angular.module('btford.markdown', ['ngSanitize']).
       }
     };
   }).
-  directive('btfMarkdown', ['$sanitize', 'markdownConverter', function ($sanitize, markdownConverter) {
+  directive('btfMarkdown', ["$sanitize", "$compile", "markdownConverter", function ($sanitize, $compile, markdownConverter) {
     return {
       restrict: 'AE',
       link: function (scope, element, attrs) {
         if (attrs.btfMarkdown) {
           scope.$watch(attrs.btfMarkdown, function (newVal) {
             var html = newVal ? $sanitize(markdownConverter.makeHtml(newVal)) : '';
-            element.html(html);
+            element.html($compile(html)(scope));
           });
         } else {
           var html = $sanitize(markdownConverter.makeHtml(element.text()));
-          element.html(html);
+          element.html($compile(html)(scope));
         }
       }
     };
