@@ -21,9 +21,6 @@ angular.module("btford.markdown", ["ngSanitize"])
             return {
                 restrict: "AE",
                 link: function (scope, element, attrs) {
-
-                    console.log("btfMarkdown", attrs);
-
                     if (attrs.btfMarkdown) {
                         scope.$watch(attrs.btfMarkdown, function (newVal) {
                             element.html(newVal ? $sanitize(markdownConverter.makeHtml(newVal)) : "");
@@ -32,8 +29,8 @@ angular.module("btford.markdown", ["ngSanitize"])
                         });
                     } else {
                         element.html($sanitize(markdownConverter.makeHtml(element.text())));
+                        
                         if (attrs.compileHtml) $compile(element.contents())(scope);
-
                     }
                 }
             };
